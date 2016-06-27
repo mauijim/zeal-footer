@@ -1,0 +1,14 @@
+{
+  "name": "zeal-footer",
+  "version": "1.0.0",
+  "description": "A componentized version of the zealoptics.com footer",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Goodwin",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.7.9"
+  }
+}
