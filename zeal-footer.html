@@ -49,6 +49,14 @@
             }
             .footer-address {
               font-weight: normal;
+              line-height: 1.5;
+            }
+            @media screen and (max-width: 767px) {
+              li {
+                display: block;
+                width: 100%;
+                padding: 0;
+              }
             }
         </style>
         <footer>
@@ -108,12 +116,7 @@
             is: 'zeal-footer',
 
             properties: {
-                prop1: {
-                    type: String,
-                    value: 'zeal-footer',
-                },
             },
-
         });
     </script>
 </dom-module>
