@@ -201,14 +201,19 @@
             },
 
             handleClick: function(e) {
-              e.preventDefault();
               if(e.target.nodeName !== 'A' && e.target.nodeName !== 'IMG') {
                 this.hideCatalogPopup();
               }
             },
 
             showCatalogPopup: function() {
+              var offsetY = window.pageYOffset;
+
               document.getElementById('catalogPopup').style.display = 'block';
+
+              // maintain scroll position
+              // using timeout so this happens after the introduced element is rendered
+              setTimeout(function() {window.scrollTo(0, offsetY);}, 0);
 
               // enable esc key binding to close
               document.onkeyup = function(e) {
