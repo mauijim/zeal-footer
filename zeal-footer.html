@@ -2,240 +2,231 @@
 
 <dom-module id="zeal-footer">
   <template>
-    <style>
-      :host {
-          display: block;
-          text-align: center;
-          font-size: 14px;
-          font-family: "Interstate", Helvetica, arial, sans-serif;
-          text-transform: uppercase;
-          padding: 30px 15px;
-          background-color: white;
-      }
+        <style>
+            :host {
+                display: block;
+                text-align: center;
+                font-size: 14px;
+                font-family: "Interstate", Helvetica, arial, sans-serif;
+                text-transform: uppercase;
+                padding: 30px 15px;
+            }
 
-      ul.footer-links-row-1,
-      ul.footer-links-row-2 {
-          display: block;
-          list-style: none;
-          padding-left: 0;
-          margin: 0;
-      }
+            ul.footer-links-row-1,
+            ul.footer-links-row-2 {
+                display: block;
+                list-style: none;
+                padding-left: 0;
+                margin: 0;
+            }
 
-      ul.footer-links-row-2 {
-          border-top: 1px solid #ccc;
-          border-bottom: 1px solid #ccc;
-          padding: 10px 0;
-          margin: 20px auto 40px;
-          width: 91%;
-          letter-spacing: .5px;
-      }
+            ul.footer-links-row-2 {
+                border-top: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                padding: 10px 0;
+                margin: 20px auto 40px;
+                width: 91%;
+                letter-spacing: .5px;
+            }
 
-      li {
-          display: inline-block;
-          line-height: 50px;
-          padding: 0 20px;
-      }
+            li {
+                display: inline-block;
+                line-height: 50px;
+                padding: 0 20px;
+            }
 
-      li a {
-        padding: 1em;
-      }
-      a {
-          color: #333;
-          text-decoration: none;
-          font-weight: 700;
-      }
-      .footer-termsprivacy {
-          margin-bottom: 15px;
-          line-height: 1.5;
-      }
-      .footer-address {
-        font-weight: normal;
-        line-height: 1.5;
-      }
+            li a {
+              padding: 1em;
+            }
+            a {
+                color: #333;
+                text-decoration: none;
+                font-weight: 700;
+            }
+            .footer-termsprivacy {
+                margin-bottom: 15px;
+                line-height: 1.5;
+            }
+            .footer-address {
+              font-weight: normal;
+              line-height: 1.5;
+            }
 
-      #catalogPopup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0,0,0,.5);
-        display: none;
-      }
-      #catalogContent {
-        background: white;
-        text-align: center;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        box-shadow: 0 0 20px rgba(0,0,0,.9);
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex: row nowrap;
-        -ms-flex: row nowrap;
-        flex: row nowrap;
-        -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-        justify-content: space-around;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-      #catalogContent a {
-        color: #036;
-        text-decoration: none;
-        -webkit-flex: 1 0 auto;
-        -ms-flex: 1 0 auto;
-        flex: 1 0 auto;
-        max-width: 33%;
-        padding: 0 1em 1em;
-        box-sizing: border-box;
-      }
-      #catalogContent a img {
-        display: block;
-        max-width: 100%;
-        width: auto;
-        margin: 25px auto;
-        max-height: 100px;
-      }
+            #catalogPopup {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100vw;
+              height: 100vh;
+              background: rgba(0,0,0,.5);
+              display: none;
+            }
+            #catalogContent {
+                background: white;
+                text-align: center;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                box-shadow: 0 0 20px rgba(0,0,0,.9);
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-flex: row nowrap;
+                -ms-flex: row nowrap;
+                flex: row nowrap;
+                -webkit-justify-content: space-around;
+                -ms-flex-pack: distribute;
+                justify-content: space-around;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+              }
+              #catalogContent a {
+                color: #036;
+                text-decoration: none;
+                -webkit-flex: 1 0 auto;
+                -ms-flex: 1 0 auto;
+                flex: 1 0 auto;
+                max-width: 33%;
+                padding: 0 1em 1em;
+                box-sizing: border-box;
+              }
+              #catalogContent a img {
+                display: block;
+                max-width: 100%;
+                width: auto;
+                margin: 25px auto;
+                max-height: 100px;
+              }
 
-      @media screen and (max-width: 767px) {
-        li {
-          display: block;
-          width: 100%;
-          padding: 0;
-        }
-      }
-    </style>
+            @media screen and (max-width: 767px) {
+              li {
+                display: block;
+                width: 100%;
+                padding: 0;
+              }
+            }
+        </style>
+        <div id="catalogPopup" on-click="handleClick">
+          <div id="catalogContent">
+            <a href="[[goggleCatalogUrl]]" target="_blank"><img src="[[goggleImgUrl]]" alt="Zeal Goggle"/>2016/2017 Goggle Catalog</a>
+            <a href="[[brandEssenceCatalogUrl]]" target="_blank"><img src="[[brandEssenceImgUrl]]" alt="Zeal Optics Logo" />Brand Essence</a>
+            <a href="[[sunglassCatalogUrl]]" target="_blank"><img src="[[sunglassImgUrl]]" alt="Zeal Sunglass"/>2017 Sunglass Catalog</a>
+          </div>
+        </div>
+        <footer>
+            <ul class="footer-links-row-1">
+                <li>
+                    <a href="https://plus.google.com/106200134313663515934/about" title="Flagship Store">Flagship Store</a>
+                </li>
+                <li>
+                    <a href="//www.zealoptics.com/en/customer-service" title="Customer Service/FAQ">Customer Service/FAQ</a>
+                </li>
+                <li>
+                    <a href="http://blog.zealoptics.com/" title="Blog">Blog</a>
+                </li>
+                <li>
+                    <a href="//www.zealoptics.com/en/gift-cards" title="Gift Cards">Gift Cards</a>
+                </li>
+                <li>
+                    <a href="//www.zealoptics.com/en/passport-page" title="Prescription">Prescription</a>
+                </li>
+            </ul>
+            <ul class="footer-links-row-2">
+                <li>
+                    <a href="//www.zealoptics.com/events" title="Events">Events</a>
+                </li>
+                <li>
+                    <a href="https://trade.mauijim.com/MJB2B/LogIn!initialLoad.action" title="Trade Login">Trade Login</a>
+                </li>
+                <li>
+                    <a href="http://coupons.zealoptics.com/media" title="Media">Media</a>
+                </li>
+                <li>
+                    <a href="//www.zealoptics.com/en/who-we-are" title="About Us">About Us</a>
+                </li>
+                <li>
+                    <a href="//www.zealoptics.com/customer-service#mediaContact" title="Contact">Contact</a>
+                </li>
+                <li>
+                    <a href="http://zealoptics.dozuki.com/" title="Tech Goggle Support">Tech Goggle Support</a>
+                </li>
+                <li>
+                    <a href="#" on-click="showCatalogPopup" title="Catalogs">Catalogs</a>
+                </li>
+                <li>
+                    <a href="https://myhana.wd5.myworkdayjobs.com/zealoptics/jobs" title="Careers">Careers</a>
+                </li>
+            </ul>
+            <p class="footer-termsprivacy">
+                <a href="//www.zealoptics.com/en/terms-privacy-page">Terms &amp; Privacy</a>
+            </p>
+            <p class="footer-address ">&copy;2017 ZEAL OPTICS - 1230 SPRUCE STREET, BOULDER COLORADO 80302</p>
+        </footer>
+    </template>
 
-    <div id="catalogPopup" on-click="handleClick">
-      <div id="catalogContent">
-        <a href="[[goggleCatalogUrl]]" target="_blank"><img src="[[goggleImgUrl]]" alt="Zeal Goggle"/>2016/2017 Goggle Catalog</a>
-        <a href="[[brandEssenceCatalogUrl]]" target="_blank"><img src="[[brandEssenceImgUrl]]" alt="Zeal Optics Logo" />Brand Essence</a>
-        <a href="[[sunglassCatalogUrl]]" target="_blank"><img src="[[sunglassImgUrl]]" alt="Zeal Sunglass"/>2017 Sunglass Catalog</a>
-      </div>
-    </div>
+    <script>
+        Polymer({
 
-    <footer>
-          <ul class="footer-links-row-1">
-              <li>
-                  <a href="https://plus.google.com/106200134313663515934/about" title="Flagship Store">Flagship Store</a>
-              </li>
-              <li>
-                  <a href="//www.zealoptics.com/en/customer-service" title="Customer Service/FAQ">Customer Service/FAQ</a>
-              </li>
-              <li>
-                  <a href="http://blog.zealoptics.com/" title="Blog">Blog</a>
-              </li>
-              <li>
-                  <a href="//www.zealoptics.com/en/gift-cards" title="Gift Cards">Gift Cards</a>
-              </li>
-              <li>
-                  <a href="//www.zealoptics.com/en/passport-page" title="Prescription">Prescription</a>
-              </li>
-          </ul>
-          <ul class="footer-links-row-2">
-              <li>
-                  <a href="//www.zealoptics.com/events" title="Events">Events</a>
-              </li>
-              <li>
-                  <a href="https://trade.mauijim.com/MJB2B/LogIn!initialLoad.action" title="Trade Login">Trade Login</a>
-              </li>
-              <li>
-                  <a href="http://coupons.zealoptics.com/media" title="Media">Media</a>
-              </li>
-              <li>
-                  <a href="//www.zealoptics.com/en/who-we-are" title="About Us">About Us</a>
-              </li>
-              <li>
-                  <a href="//www.zealoptics.com/customer-service#mediaContact" title="Contact">Contact</a>
-              </li>
-              <li>
-                  <a href="http://zealoptics.dozuki.com/" title="Tech Goggle Support">Tech Goggle Support</a>
-              </li>
-              <li>
-                  <a href="#" on-click="showCatalogPopup" title="Catalogs">Catalogs</a>
-              </li>
-              <li>
-                  <a href="https://myhana.wd5.myworkdayjobs.com/zealoptics/jobs" title="Careers">Careers</a>
-              </li>
-          </ul>
-          <p class="footer-termsprivacy">
-              <a href="//www.zealoptics.com/en/terms-privacy-page">Terms &amp; Privacy</a>
-          </p>
-          <p class="footer-address ">&copy;2017 ZEAL OPTICS - 1230 SPRUCE STREET, BOULDER COLORADO 80302</p>
-      </footer>
-  </template>
+            is: 'zeal-footer',
 
-  <script>
-    class ZealFooter extends Polymer.Element {
-      static get is() {
-        return 'zeal-footer';
-      }
+            properties: {
+              sunglassCatalogUrl: {
+                type: String,
+                value: 'https://downloads.contentful.com/1kzutnf7jc3r/2mfMb6sS4M2OyQaqCWQwgG/508fb4f92f801afdcdbb2d4bcfc5d380/0026_ZEAL_SunglassCata_Spreads_MECH_MR.pdf'
+              },
+              sunglassImgUrl: {
+                type: String,
+                value: 'https://www.zealoptics.com/medias/Component5-A.jpg?context=bWFzdGVyfHJvb3R8MTA0ODMzfGltYWdlL2pwZWd8aDg5L2hhMC84OTk5ODI2MzI1NTM0LmpwZ3w5ZjgwNzRjODU5ODU5YjliNGNlMDJhMDk3Nzk0NDM4ODY4ZDA5NWFiZDk2Mjc2OTcyZDMxYzUzM2IxMzBiNjFm'
+              },
+              brandEssenceImgUrl: {
+                type: String,
+                value: 'http://www.zealoptics.com/_ui/addons/zealopticsaddon/desktop/common/images/brand-logo.svg'
+              },
+              brandEssenceCatalogUrl: {
+                type: String,
+                value: 'https://storage.googleapis.com/mauijim-1289.appspot.com/0012_ZEAL_BrandEssence_MECH.pdf'
+              },
+              goggleCatalogUrl: {
+                type: String,
+                value: 'https://storage.googleapis.com/mauijim-1289.appspot.com/ZEAL_Goggle_Catalog_16.17.pdf'
+              },
+              goggleImgUrl: {
+                type: String,
+                value: 'https://www.zealoptics.com/medias/Component5-B.jpg?context=bWFzdGVyfHJvb3R8MTM2MDMzfGltYWdlL2pwZWd8aDQ5L2g2YS84OTk5ODI2MzU4MzAyLmpwZ3w4NDQwYzA0YmVjZjVkZmViOTdkOWUwZDQxOGIxNmMxNjA3Yzc3ODQwNzJjYmNkNGI0MzExN2M3OTA3ZjhlZGQz'
+              }
+            },
 
-      static get properties() {
-        return {
-          sunglassCatalogUrl: {
-            type: String,
-            value: 'https://downloads.contentful.com/1kzutnf7jc3r/2mfMb6sS4M2OyQaqCWQwgG/508fb4f92f801afdcdbb2d4bcfc5d380/0026_ZEAL_SunglassCata_Spreads_MECH_MR.pdf'
-          },
-          sunglassImgUrl: {
-            type: String,
-            value: 'https://www.zealoptics.com/medias/Component5-A.jpg?context=bWFzdGVyfHJvb3R8MTA0ODMzfGltYWdlL2pwZWd8aDg5L2hhMC84OTk5ODI2MzI1NTM0LmpwZ3w5ZjgwNzRjODU5ODU5YjliNGNlMDJhMDk3Nzk0NDM4ODY4ZDA5NWFiZDk2Mjc2OTcyZDMxYzUzM2IxMzBiNjFm'
-          },
-          brandEssenceImgUrl: {
-            type: String,
-            value: 'http://www.zealoptics.com/_ui/addons/zealopticsaddon/desktop/common/images/brand-logo.svg'
-          },
-          brandEssenceCatalogUrl: {
-            type: String,
-            value: 'https://storage.googleapis.com/mauijim-1289.appspot.com/0012_ZEAL_BrandEssence_MECH.pdf'
-          },
-          goggleCatalogUrl: {
-            type: String,
-            value: 'https://storage.googleapis.com/mauijim-1289.appspot.com/ZEAL_Goggle_Catalog_16.17.pdf'
-          },
-          goggleImgUrl: {
-            type: String,
-            value: 'https://www.zealoptics.com/medias/Component5-B.jpg?context=bWFzdGVyfHJvb3R8MTM2MDMzfGltYWdlL2pwZWd8aDQ5L2g2YS84OTk5ODI2MzU4MzAyLmpwZ3w4NDQwYzA0YmVjZjVkZmViOTdkOWUwZDQxOGIxNmMxNjA3Yzc3ODQwNzJjYmNkNGI0MzExN2M3OTA3ZjhlZGQz'
-          }
-        };
-      }
+            handleClick: function(e) {
+              if(e.target.nodeName !== 'A' && e.target.nodeName !== 'IMG') {
+                this.hideCatalogPopup();
+              }
+            },
 
-      handleClick(e) {
-        if (e.target.nodeName !== 'A' && e.target.nodeName !== 'IMG') {
-          this.hideCatalogPopup();
-        }
-      }
+            showCatalogPopup: function() {
+              var offsetY = window.pageYOffset;
 
-      showCatalogPopup() {
-        var offsetY = window.pageYOffset;
+              document.getElementById('catalogPopup').style.display = 'block';
 
-        document.getElementById('catalogPopup').style.display = 'block';
+              // maintain scroll position
+              // using timeout so this happens after the introduced element is rendered
+              setTimeout(function() {window.scrollTo(0, offsetY);}, 0);
 
-        // maintain scroll position
-        // using timeout so this happens after the introduced element is rendered
-        setTimeout(function() {
-          window.scrollTo(0, offsetY);
-        }, 0);
+              // enable esc key binding to close
+              document.onkeyup = function(e) {
+                if(e.which === 27) { // esc
+                  this.hideCatalogPopup();
+                }
+              }.bind(this);
+            },
 
-        // enable esc key binding to close
-        document.onkeyup = function(e) {
-          if (e.which === 27) { // esc
-            this.hideCatalogPopup();
-          }
-        }.bind(this);
-      }
+            hideCatalogPopup: function() {
+              document.getElementById('catalogPopup').style.display = 'none';
+            },
+        });
+    </script>
 
-      hideCatalogPopup() {
-        document.getElementById('catalogPopup').style.display = 'none';
-      }
-    }
-
-    window.customElements.define(ZealFooter.is, ZealFooter);
-  </script>
 </dom-module>

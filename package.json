@@ -1,7 +1,7 @@
 {
   "name": "zeal-footer",
-  "version": "2.0.0",
-  "description": "A componentized version of the zealoptics.com footer. Plymer 2.0 ES6 element.",
+  "version": "1.0.0",
+  "description": "A componentized version of the zealoptics.com footer. Polymer 1.X element.",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
