@@ -185,11 +185,11 @@
           },
           sunglassImgUrl: {
             type: String,
-            value: 'https://www.zealoptics.com/medias/Component5-A.jpg?context=bWFzdGVyfHJvb3R8MTA0ODMzfGltYWdlL2pwZWd8aDg5L2hhMC84OTk5ODI2MzI1NTM0LmpwZ3w5ZjgwNzRjODU5ODU5YjliNGNlMDJhMDk3Nzk0NDM4ODY4ZDA5NWFiZDk2Mjc2OTcyZDMxYzUzM2IxMzBiNjFm'
+            value: '../img/sunglass.jpg'
           },
           brandEssenceImgUrl: {
             type: String,
-            value: 'http://www.zealoptics.com/_ui/addons/zealopticsaddon/desktop/common/images/brand-logo.svg'
+            value: '../img/brand-logo.svg'
           },
           brandEssenceCatalogUrl: {
             type: String,
@@ -201,7 +201,7 @@
           },
           goggleImgUrl: {
             type: String,
-            value: 'https://www.zealoptics.com/medias/Component5-B.jpg?context=bWFzdGVyfHJvb3R8MTM2MDMzfGltYWdlL2pwZWd8aDQ5L2g2YS84OTk5ODI2MzU4MzAyLmpwZ3w4NDQwYzA0YmVjZjVkZmViOTdkOWUwZDQxOGIxNmMxNjA3Yzc3ODQwNzJjYmNkNGI0MzExN2M3OTA3ZjhlZGQz'
+            value: '../img/goggle.jpg'
           }
         };
       }
@@ -215,7 +215,7 @@
       showCatalogPopup() {
         var offsetY = window.pageYOffset;
 
-        document.getElementById('catalogPopup').style.display = 'block';
+        this.$.catalogPopup.style.display = 'block';
 
         // maintain scroll position
         // using timeout so this happens after the introduced element is rendered
@@ -232,7 +232,7 @@
       }
 
       hideCatalogPopup() {
-        document.getElementById('catalogPopup').style.display = 'none';
+        this.$.catalogPopup.style.display = 'none';
       }
     }
 
