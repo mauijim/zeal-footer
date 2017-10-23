@@ -114,9 +114,9 @@
 
     <div id="catalogPopup" on-click="handleClick">
       <div id="catalogContent">
-        <a href="[[goggleCatalogUrl]]" target="_blank"><img src="[[goggleImgUrl]]" alt="Zeal Goggle"/>2016/2017 Goggle Catalog</a>
-        <a href="[[brandEssenceCatalogUrl]]" target="_blank"><img src="[[brandEssenceImgUrl]]" alt="Zeal Optics Logo" />Brand Essence</a>
-        <a href="[[sunglassCatalogUrl]]" target="_blank"><img src="[[sunglassImgUrl]]" alt="Zeal Sunglass"/>2017 Sunglass Catalog</a>
+        <a href="[[goggleCatalogUrl]]" target="_blank"><img src="[[importPath]][[goggleImgUrl]]" alt="Zeal Goggle"/>2016/2017 Goggle Catalog</a>
+        <a href="[[brandEssenceCatalogUrl]]" target="_blank"><img src="[[importPath]][[brandEssenceImgUrl]]" alt="Zeal Optics Logo" />Brand Essence</a>
+        <a href="[[sunglassCatalogUrl]]" target="_blank"><img src="[[importPath]][[sunglassImgUrl]]" alt="Zeal Sunglass"/>2017 Sunglass Catalog</a>
       </div>
     </div>
 
@@ -185,11 +185,11 @@
           },
           sunglassImgUrl: {
             type: String,
-            value: '../img/sunglass.jpg'
+            value: 'img/sunglass.jpg'
           },
           brandEssenceImgUrl: {
             type: String,
-            value: '../img/brand-logo.svg'
+            value: 'img/brand-logo.svg'
           },
           brandEssenceCatalogUrl: {
             type: String,
@@ -201,7 +201,7 @@
           },
           goggleImgUrl: {
             type: String,
-            value: '../img/goggle.jpg'
+            value: 'img/goggle.jpg'
           }
         };
       }
