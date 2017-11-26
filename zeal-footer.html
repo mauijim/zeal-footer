@@ -114,9 +114,9 @@
 
     <div id="catalogPopup" on-click="handleClick">
       <div id="catalogContent">
-        <a href="[[goggleCatalogUrl]]" target="_blank"><img src="[[importPath]][[goggleImgUrl]]" alt="Zeal Goggle"/>2016/2017 Goggle Catalog</a>
-        <a href="[[brandEssenceCatalogUrl]]" target="_blank"><img src="[[importPath]][[brandEssenceImgUrl]]" alt="Zeal Optics Logo" />Brand Essence</a>
-        <a href="[[sunglassCatalogUrl]]" target="_blank"><img src="[[importPath]][[sunglassImgUrl]]" alt="Zeal Sunglass"/>2017 Sunglass Catalog</a>
+        <a href="[[goggleCatalogUrl]]" target="_blank"><img data-src$="[[importPath]][[goggleImgUrl]]" alt="Zeal Goggle"/>2016/2017 Goggle Catalog</a>
+        <a href="[[brandEssenceCatalogUrl]]" target="_blank"><img data-src$="[[importPath]][[brandEssenceImgUrl]]" alt="Zeal Optics Logo" />Brand Essence</a>
+        <a href="[[sunglassCatalogUrl]]" target="_blank"><img data-src$="[[importPath]][[sunglassImgUrl]]" alt="Zeal Sunglass"/>2017 Sunglass Catalog</a>
       </div>
     </div>
 
@@ -202,6 +202,10 @@
           goggleImgUrl: {
             type: String,
             value: 'img/goggle.jpg'
+          },
+          lazyImages: {
+            type: Array,
+            value: () => {return []}
           }
         };
       }
@@ -212,7 +216,26 @@
         }
       }
 
+      loadLazyImages() {
+        while(this.lazyImages.length > 0) {
+          let elem = this.pop('lazyImages');
+          let src = elem.getAttribute('data-src');
+          if(src != null) {
+            elem.src = src;
+          }
+        }
+      }
+
       showCatalogPopup() {
+        // add images to lazyImages array
+        Array.from(this.shadowRoot.querySelectorAll('#catalogContent img')).forEach(img => {
+          console.log(img)
+          this.push('lazyImages', img);
+        });
+
+        // lazy load images
+        this.loadLazyImages();
+
         var offsetY = window.pageYOffset;
 
         this.$.catalogPopup.style.display = 'block';
