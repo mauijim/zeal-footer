@@ -229,7 +229,6 @@
       showCatalogPopup() {
         // add images to lazyImages array
         Array.from(this.shadowRoot.querySelectorAll('#catalogContent img')).forEach(img => {
-          console.log(img)
           this.push('lazyImages', img);
         });
 
