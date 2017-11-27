@@ -226,7 +226,8 @@
         }
       }
 
-      showCatalogPopup() {
+      showCatalogPopup(e) {
+        e.preventDefault();
         // add images to lazyImages array
         Array.from(this.shadowRoot.querySelectorAll('#catalogContent img')).forEach(img => {
           this.push('lazyImages', img);
@@ -251,6 +252,8 @@
             this.hideCatalogPopup();
           }
         }.bind(this);
+
+        return false; // make sure link isn't followed
       }
 
       hideCatalogPopup() {
